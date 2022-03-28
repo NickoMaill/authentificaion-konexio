@@ -1,0 +1,19 @@
+# dependencies
+Back/node_modules
+Front/node_modules
+Front/.pnp
+.pnp.js
+
+# testing
+Front/coverage
+
+# production
+Front/build
+
+# misc
+.DS_Store
+Back/config.env
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
