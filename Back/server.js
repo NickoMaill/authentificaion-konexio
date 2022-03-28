@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const userRouter = require("./routes/userRoute");
 const cookieParser = require("cookie-parser");
+const cors = require("./middleware/cors");
 dotenv.config({
   path: "./config.env",
 });
@@ -18,6 +19,7 @@ mongoose
 
 app.use(express.json());
 app.use(cookieParser());
+app.use(cors)
 app.use("/user", userRouter);
 
 app.listen(8000, () => console.log("listening on port 8000"));

@@ -12,7 +12,7 @@ dotenv.config({
 
 const secret = process.env.COOKIE_PASS;
 
-router.post("/register", validNewUser, async (req, res) => {
+router.post("/signup", validNewUser, async (req, res) => {
   const hashedPassword = await bcrypt.hash(req.body.password, 12);
 
   try {
