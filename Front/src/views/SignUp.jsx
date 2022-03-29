@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-function SignUp(props) {
+export default function SignUp() {
+  const history = useNavigate()
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [rePassword, setRePassword] = useState("");
@@ -13,7 +15,9 @@ function SignUp(props) {
   console.log(password);
   console.log(rePassword);
 
-  const userRegister = () => {
+  const userRegister = (e) => {
+    e.preventDefault();
+
     if (rePassword !== password) {
       return console.error("wrong match");
     }
@@ -37,6 +41,7 @@ function SignUp(props) {
     })
       .then((res) => res.json())
       .then((res) => {
+        history.push("/login")
         console.log(res);
       });
   };
@@ -111,5 +116,3 @@ function SignUp(props) {
     </div>
   );
 }
-
-export default SignUp;

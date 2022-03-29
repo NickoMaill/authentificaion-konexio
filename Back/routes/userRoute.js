@@ -56,7 +56,7 @@ router.post("/login", validUser, async (req, res) => {
   });
 });
 
-router.get("/users", async (req, res) => {
+router.get("/", async (req, res) => {
   const data = jwt.verify(req.cookies.jwt, secret);
   const users = await User.find();
   try {
